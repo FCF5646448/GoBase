@@ -60,6 +60,7 @@ func (t T) Method() {
 	fmt.Println(t.value)
 }
 
+// 随机数
 func randomTest() {
 	for i:=0;i<5 ; i++ {
 		a := rand.Int() //生成一个整形随机数
