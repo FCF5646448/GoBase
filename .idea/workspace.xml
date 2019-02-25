@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12ef325f-6bf7-41d8-bc9d-24162d876e95" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/examples/strings.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/hello_world.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/hello_world.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mds/go入门01.md" beforeDir="false" afterPath="$PROJECT_DIR$/mds/go入门01.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/PointStruct.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mds/go入门03.md" beforeDir="false" afterPath="$PROJECT_DIR$/mds/go入门03.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,20 +17,26 @@
       <file leaf-file-name="hello_world.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="30">
+              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="strings.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/strings.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-              <folding>
-                <element signature="e#14#39#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-896">
+              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PointStruct.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/PointStruct.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -40,7 +44,7 @@
       <file leaf-file-name="practice01.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/practice01.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
+            <state relative-caret-position="300">
               <caret line="20" selection-start-line="20" selection-end-line="21" />
             </state>
           </provider>
@@ -65,6 +69,7 @@
         <option value="$PROJECT_DIR$/examples/practice01.go" />
         <option value="$PROJECT_DIR$/examples/hello_world.go" />
         <option value="$PROJECT_DIR$/examples/strings.go" />
+        <option value="$PROJECT_DIR$/examples/PointStruct.go" />
       </list>
     </option>
   </component>
@@ -78,8 +83,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="81" />
-    <option name="y" value="147" />
+    <option name="x" value="348" />
+    <option name="y" value="25" />
     <option name="width" value="825" />
     <option name="height" value="713" />
   </component>
@@ -91,6 +96,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -107,7 +113,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -130,7 +135,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build strings.go">
+  <component name="RunManager" selected="Go Build.go build PointStruct.go">
+    <configuration name="go build PointStruct.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="GoLearn" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/examples/PointStruct.go" />
+      <directory value="$PROJECT_DIR$/" />
+    </configuration>
     <configuration name="go build hello_world.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="GoLearn" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -159,9 +172,11 @@
       <item itemvalue="Go Build.go build hello_world.go" />
       <item itemvalue="Go Build.go build practice01.go" />
       <item itemvalue="Go Build.go build strings.go" />
+      <item itemvalue="Go Build.go build PointStruct.go" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build PointStruct.go" />
         <item itemvalue="Go Build.go build strings.go" />
         <item itemvalue="Go Build.go build hello_world.go" />
         <item itemvalue="Go Build.go build practice01.go" />
@@ -169,7 +184,7 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="81" y="147" width="825" height="713" extended-state="0" />
+    <frame x="348" y="25" width="825" height="713" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27151516" />
@@ -177,7 +192,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.1971831" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1971831" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -204,6 +219,27 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/practice01.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/strings.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -234,25 +270,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/practice01.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
+        <state relative-caret-position="300">
           <caret line="20" selection-start-line="20" selection-end-line="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="30">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/strings.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="19" lean-forward="true" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-          <folding>
-            <element signature="e#14#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-896">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/PointStruct.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
         </state>
       </provider>
     </entry>
