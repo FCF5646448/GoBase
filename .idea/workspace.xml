@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12ef325f-6bf7-41d8-bc9d-24162d876e95" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/examples/function.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/colletion.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mds/go入门01.md" beforeDir="false" afterPath="$PROJECT_DIR$/mds/go入门01.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/function.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/function.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/hello_world.go" beforeDir="false" afterPath="$PROJECT_DIR$/examples/hello_world.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mds/go入门04.md" beforeDir="false" afterPath="$PROJECT_DIR$/mds/go入门04.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mds/go入门05.md" beforeDir="false" afterPath="$PROJECT_DIR$/mds/go入门05.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +21,8 @@
       <file leaf-file-name="hello_world.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="372">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
             </state>
           </provider>
         </entry>
@@ -36,20 +39,29 @@
       <file leaf-file-name="PointStruct.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/PointStruct.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+            <state relative-caret-position="368">
+              <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="function.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/function.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+            <state relative-caret-position="180">
+              <caret line="207" selection-start-line="207" selection-end-line="218" selection-end-column="1" />
               <folding>
                 <element signature="e#14#42#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colletion.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/colletion.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -72,6 +84,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>f1</find>
+    </findStrings>
+  </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,10 +97,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/examples/practice01.go" />
-        <option value="$PROJECT_DIR$/examples/hello_world.go" />
         <option value="$PROJECT_DIR$/examples/strings.go" />
         <option value="$PROJECT_DIR$/examples/PointStruct.go" />
+        <option value="$PROJECT_DIR$/examples/hello_world.go" />
         <option value="$PROJECT_DIR$/examples/function.go" />
+        <option value="$PROJECT_DIR$/examples/colletion.go" />
       </list>
     </option>
   </component>
@@ -97,8 +115,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="70" />
-    <option name="y" value="77" />
+    <option name="x" value="112" />
+    <option name="y" value="95" />
     <option name="width" value="825" />
     <option name="height" value="713" />
   </component>
@@ -208,16 +226,16 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="77" width="825" height="713" extended-state="0" />
+    <frame x="112" y="95" width="825" height="713" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27151516" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50060606" side_tool="true" visible="true" weight="0.1971831" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5018182" side_tool="true" weight="0.22222222" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49939394" weight="0.1971831" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49818182" visible="true" weight="0.22222222" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -239,10 +257,48 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/strings.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/PointStruct.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/practice01.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/function.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding>
+            <element signature="e#14#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -327,20 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/PointStruct.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/examples/strings.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -348,13 +390,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/examples/hello_world.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/PointStruct.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="67" column="19" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/examples/function.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        <state relative-caret-position="180">
+          <caret line="207" selection-start-line="207" selection-end-line="218" selection-end-column="1" />
           <folding>
             <element signature="e#14#42#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/colletion.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
