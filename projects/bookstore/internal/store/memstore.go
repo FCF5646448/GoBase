@@ -6,6 +6,7 @@ import (
 	"sync"
 )
 
+// 在初始化中注册，只要有导入internal/store包，就自动完成了注册
 func init() {
 	factory.Register("mem", &MemStore{
 		books: make(map[string]*mystore.Book),

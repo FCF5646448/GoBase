@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "bookstore/internal/store"
+	_ "bookstore/internal/store" // 隐私初始化
 	"bookstore/server"
 	"bookstore/store/factory"
 	"context"
@@ -13,10 +13,13 @@ import (
 )
 
 func main() {
+	// 创建存储模块
 	s, err := factory.New("mem")
 	if err != nil {
 		panic(err)
 	}
+
+	// 创建Http服务模块
 	srv := server.NewBookStoreServer(":8080", s)
 
 	errChan, err := srv.ListenAndServer()
