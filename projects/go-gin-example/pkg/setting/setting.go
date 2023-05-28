@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/go-ini/ini"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var (

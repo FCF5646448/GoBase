@@ -18,7 +18,7 @@ func GetTags(c *gin.Context) {
 	// c.Quuery 用户获取?name=test&state=1这类URL参数
 	// c.DefaultQuery则支持设置一个默认值
 	name := c.Query("name")
-	fmt.Println("开始GetTags:")
+	fmt.Println("xxxxxxxx fcf 开始获取tags")
 
 	maps := make(map[string]interface{})
 	data := make(map[string]interface{})
@@ -36,6 +36,7 @@ func GetTags(c *gin.Context) {
 	// util.GetPage保证了各接口的page处理是一致的
 	data["lists"] = models.GetTags(util.GetPage(c), setting.PageSize, maps)
 	data["total"] = models.GetTagTotal(maps)
+	fmt.Println("xxxxxxxx fcf : 开始获取tags")
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": code,
@@ -46,8 +47,8 @@ func GetTags(c *gin.Context) {
 
 // 新增文章标签
 func AddTag(c *gin.Context) {
-	fmt.Println("开始添加tags")
 	name := c.Query("name")
+	fmt.Printf("xxxxxxxx fcf 开始添加tag name: %s", name)
 	state := com.StrTo(c.DefaultQuery("state", "0")).MustInt()
 	createdBy := c.Query("created_by")
 
@@ -60,9 +61,17 @@ func AddTag(c *gin.Context) {
 
 	code := e.INVALID_PARAMS
 	if !valid.HasErrors() {
-		if !models.ExistTagByName(name) {
+		exist, err := models.ExistTagByName(name)
+		if exist {
 			code = e.SUCCESS
-			models.AddTag(name, state, createdBy)
+			err := models.AddTag(name, state, createdBy)
+			if err != nil {
+				fmt.Println("add tag success")
+			} else {
+				fmt.Printf("add tag faileed: %x", err)
+			}
+		} else if err != nil {
+			code = e.ERROR
 		} else {
 			code = e.ERROR_EXIST_TAG
 		}
@@ -77,6 +86,7 @@ func AddTag(c *gin.Context) {
 
 // 修改文章标签
 func EditTag(c *gin.Context) {
+	fmt.Println("xxxxxxxx fcf 修改tag")
 	id := com.StrTo(c.Param("id")).MustInt()
 	name := c.Query("name")
 	modifiedBy := c.Query("modified_by")
@@ -120,6 +130,7 @@ func EditTag(c *gin.Context) {
 
 // 删除文章标签
 func DeleteTag(c *gin.Context) {
+	fmt.Println("xxxxxxxx fcf 删除tag")
 	id := com.StrTo(c.Param("id")).MustInt()
 
 	valid := validation.Validation{}

@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/jinzhu/gorm"
@@ -10,16 +11,17 @@ import (
 type Tag struct {
 	Model
 
-	Name      string `json:"name"`
-	CreatedBy string `json:"created_by"`
-	Modifiedy string `json:"modified_by"`
-	State     int    `json:"state"`
+	Name       string `json:"name"`
+	CreatedBy  string `json:"created_by"`
+	ModifiedBy string `json:"modified_by"`
+	State      int    `json:"state"`
 }
 
 // 这里的return 后面没有跟着变量。这是因为函数的声明中
 // 已经明确显示了返回值是tags。
 // db从哪里来？因为在同一个models包下，因此DB可以直接使用
 func GetTags(pageNum int, pageSize int, maps interface{}) (tags []Tag) {
+	fmt.Printf("xxxxxxxx fcf page: %d, size: %d", pageNum, pageSize)
 	db.Where(maps).Find(&tags).Offset(pageNum).Limit(pageSize)
 	return
 }
@@ -30,10 +32,17 @@ func GetTagTotal(maps interface{}) (count int) {
 }
 
 // 判断Tag是否存在
-func ExistTagByName(name string) bool {
+func ExistTagByName(name string) (bool, error) {
 	var tag Tag
-	db.Select("id").Where("name = ?", name).First(&tag)
-	return tag.ID > 0
+	err := db.Select("id").Where("name = ? AND deleted_on = ?", name, 0).First(&tag).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return false, err
+	}
+
+	if tag.ID > 0 {
+		return true, nil
+	}
+	return false, nil
 }
 
 func ExistTagByID(id int) bool {
@@ -42,13 +51,16 @@ func ExistTagByID(id int) bool {
 	return tag.ID > 0
 }
 
-func AddTag(name string, state int, createdBy string) bool {
-	db.Create(&Tag{
+func AddTag(name string, state int, createdBy string) error {
+	tag := Tag{
 		Name:      name,
 		State:     state,
 		CreatedBy: createdBy,
-	})
-	return true
+	}
+	if err := db.Create(&tag).Error; err != nil {
+		return err
+	}
+	return nil
 }
 
 func EditTag(id int, data interface{}) bool {
