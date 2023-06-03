@@ -57,7 +57,9 @@ func AddTag(name string, state int, createdBy string) error {
 		State:     state,
 		CreatedBy: createdBy,
 	}
+	db.AutoMigrate(&Tag{})
 	if err := db.Create(&tag).Error; err != nil {
+		fmt.Println("xxxxxxfcf: addtag 失败", err)
 		return err
 	}
 	return nil
@@ -81,4 +83,8 @@ func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
 func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
 	scope.SetColumn("ModifiedOn", time.Now().Unix())
 	return nil
+}
+
+func (Tag) TableName() string {
+	return "blog_tag"
 }

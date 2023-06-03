@@ -26,7 +26,7 @@ func GetTags(c *gin.Context) {
 	if name != "" {
 		maps["name"] = name
 	}
-	var state int = 1
+	var state int = -1
 	if arg := c.Query("state"); arg != "" {
 		state = com.StrTo(arg).MustInt()
 		maps["state"] = state
@@ -62,13 +62,15 @@ func AddTag(c *gin.Context) {
 	code := e.INVALID_PARAMS
 	if !valid.HasErrors() {
 		exist, err := models.ExistTagByName(name)
-		if exist {
-			code = e.SUCCESS
+		if !exist {
+			fmt.Printf("xxxxxxxx fcf model 数据不存在")
 			err := models.AddTag(name, state, createdBy)
 			if err != nil {
-				fmt.Println("add tag success")
+				fmt.Printf("add tag failed: %x", err)
+				code = e.ERROR
 			} else {
-				fmt.Printf("add tag faileed: %x", err)
+				fmt.Println("add tag success")
+				code = e.SUCCESS
 			}
 		} else if err != nil {
 			code = e.ERROR
