@@ -32,11 +32,15 @@ func GetTags(c *gin.Context) {
 		maps["state"] = state
 	}
 	code := e.SUCCESS
-
-	// util.GetPage保证了各接口的page处理是一致的
-	data["lists"] = models.GetTags(util.GetPage(c), setting.PageSize, maps)
-	data["total"] = models.GetTagTotal(maps)
 	fmt.Println("xxxxxxxx fcf : 开始获取tags")
+	// util.GetPage保证了各接口的page处理是一致的
+	lists, err := models.GetTags(util.GetPage(c), setting.PageSize, maps)
+	if err != nil {
+		code = e.ERROR
+		fmt.Println("xxxxxxxx fcf : 开始获取tags list 失败:", err)
+	}
+	data["lists"] = lists
+	data["total"] = models.GetTagTotal(maps)
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": code,

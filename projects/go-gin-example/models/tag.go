@@ -20,10 +20,21 @@ type Tag struct {
 // 这里的return 后面没有跟着变量。这是因为函数的声明中
 // 已经明确显示了返回值是tags。
 // db从哪里来？因为在同一个models包下，因此DB可以直接使用
-func GetTags(pageNum int, pageSize int, maps interface{}) (tags []Tag) {
-	fmt.Printf("xxxxxxxx fcf page: %d, size: %d", pageNum, pageSize)
-	db.Where(maps).Find(&tags).Offset(pageNum).Limit(pageSize)
-	return
+func GetTags(pageNum int, pageSize int, maps interface{}) ([]Tag, error) {
+	fmt.Printf("xxxxxxxx fcf gettags —— page: %d, size: %d", pageNum, pageSize)
+	var (
+		tags []Tag
+		err  error
+	)
+	if pageSize > 0 && pageNum > 0 {
+		err = db.Where(maps).Find(&tags).Offset(pageNum).Limit(pageSize).Error
+	} else {
+		err = db.Where(maps).Find(&tags).Error
+	}
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return nil, err
+	}
+	return tags, nil
 }
 
 func GetTagTotal(maps interface{}) (count int) {
@@ -85,6 +96,6 @@ func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
 	return nil
 }
 
-func (Tag) TableName() string {
-	return "blog_tag"
-}
+// func (Tag) TableName() string {
+// 	return "blog_tag"
+// }
