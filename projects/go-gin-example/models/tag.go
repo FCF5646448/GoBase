@@ -95,7 +95,3 @@ func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
 	scope.SetColumn("ModifiedOn", time.Now().Unix())
 	return nil
 }
-
-// func (Tag) TableName() string {
-// 	return "blog_tag"
-// }
