@@ -1,13 +1,12 @@
 package api
 
 import (
-	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/astaxie/beego/validation"
 	"github.com/fcf/go-gin-example/models"
 	"github.com/fcf/go-gin-example/pkg/e"
+	"github.com/fcf/go-gin-example/pkg/logging"
 	"github.com/fcf/go-gin-example/pkg/util"
 	"github.com/gin-gonic/gin"
 )
@@ -39,14 +38,14 @@ func GetAuth(c *gin.Context) {
 				code = e.SUCCESS
 			}
 		} else if err != nil {
-			fmt.Printf("auth is not exist: %x", err)
+			logging.Debug("auth is not exist: %x", err)
 			code = e.ERROR_AUTH
 		} else {
 			code = e.ERROR_AUTH
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			logging.Info(err.Key, err.Message)
 		}
 	}
 
@@ -71,17 +70,18 @@ func RegistAuth(c *gin.Context) {
 	if !valid.HasErrors() {
 		exist, _ := models.ExistAuthByName(username)
 		if !exist {
-			fmt.Printf("xxxxxxxx fcf %s 未注册过", username)
+			logging.Debug("xxxxxxxx fcf %s 未注册过", username)
 			suc := models.RegistAuth(username, password)
 			if suc {
-				fmt.Println("regist auth success")
+				logging.Debug("regist auth success")
 				code = e.SUCCESS
 			} else {
-				fmt.Println("regist auth failed")
+				logging.Debug("regist auth failed")
 				code = e.ERROR
 			}
 		} else {
 			code = e.ERROR_EXIST_AUTH
+			logging.Debug("xxxxxxxx fcf %s 已被注册", username)
 		}
 	}
 

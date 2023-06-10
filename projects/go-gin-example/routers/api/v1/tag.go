@@ -1,12 +1,12 @@
 package v1
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/astaxie/beego/validation"
 	"github.com/fcf/go-gin-example/models"
 	"github.com/fcf/go-gin-example/pkg/e"
+	"github.com/fcf/go-gin-example/pkg/logging"
 	"github.com/fcf/go-gin-example/pkg/setting"
 	"github.com/fcf/go-gin-example/pkg/util"
 	"github.com/gin-gonic/gin"
@@ -18,7 +18,7 @@ func GetTags(c *gin.Context) {
 	// c.Quuery 用户获取?name=test&state=1这类URL参数
 	// c.DefaultQuery则支持设置一个默认值
 	name := c.Query("name")
-	fmt.Println("xxxxxxxx fcf 开始获取tags")
+	logging.Debug("xxxxxxxx fcf 开始获取tags")
 
 	maps := make(map[string]interface{})
 	data := make(map[string]interface{})
@@ -32,12 +32,12 @@ func GetTags(c *gin.Context) {
 		maps["state"] = state
 	}
 	code := e.SUCCESS
-	fmt.Println("xxxxxxxx fcf : 开始获取tags")
+	logging.Debug("xxxxxxxx fcf : 开始获取tags")
 	// util.GetPage保证了各接口的page处理是一致的
 	lists, err := models.GetTags(util.GetPage(c), setting.PageSize, maps)
 	if err != nil {
 		code = e.ERROR
-		fmt.Println("xxxxxxxx fcf : 开始获取tags list 失败:", err)
+		logging.Debug("xxxxxxxx fcf : 开始获取tags list 失败:", err)
 	}
 	data["lists"] = lists
 	data["total"] = models.GetTagTotal(maps)
@@ -52,7 +52,7 @@ func GetTags(c *gin.Context) {
 // 新增文章标签
 func AddTag(c *gin.Context) {
 	name := c.Query("name")
-	fmt.Printf("xxxxxxxx fcf 开始添加tag name: %s", name)
+	logging.Debug("xxxxxxxx fcf 开始添加tag name: %s", name)
 	state := com.StrTo(c.DefaultQuery("state", "0")).MustInt()
 	createdBy := c.Query("created_by")
 
@@ -67,13 +67,13 @@ func AddTag(c *gin.Context) {
 	if !valid.HasErrors() {
 		exist, err := models.ExistTagByName(name)
 		if !exist {
-			fmt.Printf("xxxxxxxx fcf model 数据不存在")
+			logging.Debug("xxxxxxxx fcf model 数据不存在")
 			err := models.AddTag(name, state, createdBy)
 			if err != nil {
-				fmt.Printf("add tag failed: %x", err)
+				logging.Debug("add tag failed: %x", err)
 				code = e.ERROR
 			} else {
-				fmt.Println("add tag success")
+				logging.Debug("add tag success")
 				code = e.SUCCESS
 			}
 		} else if err != nil {
@@ -92,7 +92,7 @@ func AddTag(c *gin.Context) {
 
 // 修改文章标签
 func EditTag(c *gin.Context) {
-	fmt.Println("xxxxxxxx fcf 修改tag")
+	logging.Debug("xxxxxxxx fcf 修改tag")
 	id := com.StrTo(c.Param("id")).MustInt()
 	name := c.Query("name")
 	modifiedBy := c.Query("modified_by")
@@ -136,7 +136,7 @@ func EditTag(c *gin.Context) {
 
 // 删除文章标签
 func DeleteTag(c *gin.Context) {
-	fmt.Println("xxxxxxxx fcf 删除tag")
+	logging.Debug("xxxxxxxx fcf 删除tag")
 	id := com.StrTo(c.Param("id")).MustInt()
 
 	valid := validation.Validation{}

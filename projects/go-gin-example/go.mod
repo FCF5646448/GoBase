@@ -52,4 +52,5 @@ replace (
 	github.com/fcf/go-gin-example/routers => ./routers
 	github.com/fcf/go-gin-example/routers/api => ./routers/api
 	github.com/fcf/go-gin-example/runtime => ./runtime
+	github.com/fcf/go-gin-example/pkg/logging => ./pkg/logging
 )
