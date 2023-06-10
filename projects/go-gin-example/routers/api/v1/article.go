@@ -87,6 +87,7 @@ func GetArticles(c *gin.Context) {
 }
 
 // / 新增文章
+// http://127.0.0.1:8000/api/v1/articles?tag_id=1&title=test1&desc=test_desc&content=content_test&created_by=fcf&state=1
 func AddArticle(c *gin.Context) {
 	tagId := com.StrTo(c.Query("tag_id")).MustInt()
 	title := c.Query("title")
@@ -104,7 +105,7 @@ func AddArticle(c *gin.Context) {
 
 	code := e.INVALID_PARAMS
 	if !valid.HasErrors() {
-		if models.ExistArticleByID(tagId) {
+		if models.ExistTagByID(tagId) {
 			data := make(map[string]interface{})
 			data["tag_id"] = tagId
 			data["title"] = title
@@ -116,6 +117,7 @@ func AddArticle(c *gin.Context) {
 			suc := models.AddArticle(data)
 			if suc {
 				fmt.Println("添加文章成功")
+				code = e.SUCCESS
 			} else {
 				fmt.Println("添加文章失败")
 			}

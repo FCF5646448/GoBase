@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/jinzhu/gorm"
@@ -34,10 +35,7 @@ func (article *Article) BeforeUpdate(scope *gorm.Scope) error {
 func ExistArticleByID(id int) bool {
 	var article Article
 	db.Select("id").Where("id = ?", id).First(&article)
-	if article.ID > 0 {
-		return true
-	}
-	return false
+	return article.ID > 0
 }
 
 // / 获取文章数量
@@ -79,14 +77,19 @@ func EditArticle(id int, data interface{}) bool {
 
 // / 新增文章
 func AddArticle(data map[string]interface{}) bool {
-	db.Create(&Article{
+	article := Article{
 		TagID:     data["tag_id"].(int),
 		Title:     data["title"].(string),
 		Desc:      data["desc"].(string),
 		Content:   data["content"].(string),
 		CreatedBy: data["created_by"].(string),
 		State:     data["state"].(int),
-	})
+	}
+	db.AutoMigrate(&Article{})
+	if err := db.Create(&article).Error; err != nil {
+		fmt.Println("xxxxxxfcf: addArticle 失败", err)
+		return false
+	}
 	return true
 }
 
