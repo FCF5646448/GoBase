@@ -1,0 +1,131 @@
+info:
+  contact: {}
+paths:
+  /api/v1/tags:
+    get:
+      parameters:
+      - description: Token
+        in: query
+        name: token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{"lists": [{"id": 4,"created_on": 1685854990,"modified_on":
+            0,"deleted_on": 0,"name": "4","created_by": "fcf","modified_by": "","state":
+            1}]},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取多个文章标签
+    post:
+      parameters:
+      - description: Token
+        in: query
+        name: token
+        required: true
+        type: string
+      - description: Name
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: State
+        in: query
+        name: state
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 新增文章标签
+  /api/v1/tags/:id:
+    delete:
+      parameters:
+      - description: Token
+        in: query
+        name: token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除文章标签
+    put:
+      parameters:
+      - description: Token
+        in: query
+        name: token
+        required: true
+        type: string
+      - description: Name
+        in: query
+        name: name
+        required: true
+        type: string
+      - description: State
+        in: query
+        name: state
+        type: integer
+      - description: State
+        in: query
+        name: modified_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 修改文章标签
+  /auth:
+    get:
+      parameters:
+      - description: 账号
+        in: query
+        name: username
+        required: true
+        type: string
+      - description: 密码
+        in: query
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{"token": "xxxx5cCxxxx"},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 获取作者接口(相当于登录接口)
+    post:
+      parameters:
+      - description: 账号
+        in: query
+        name: username
+        required: true
+        type: string
+      - description: 密码
+        in: query
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 注册作者
+swagger: "2.0"

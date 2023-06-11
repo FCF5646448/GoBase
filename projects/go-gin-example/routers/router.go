@@ -1,11 +1,14 @@
 package routers
 
 import (
+	_ "github.com/fcf/go-gin-example/docs"
 	"github.com/fcf/go-gin-example/middleware/jwt"
 	"github.com/fcf/go-gin-example/pkg/setting"
 	"github.com/fcf/go-gin-example/routers/api"
 	v1 "github.com/fcf/go-gin-example/routers/api/v1"
 	"github.com/gin-gonic/gin"
+	swaggerFilles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func InitRouter() *gin.Engine {
@@ -15,6 +18,9 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Recovery())
 
 	gin.SetMode(setting.RunMode)
+
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFilles.Handler))
+	// r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFilles.Handler))
 
 	r.POST("/auth", api.RegistAuth)
 	r.GET("/auth", api.GetAuth)
@@ -30,7 +36,6 @@ func InitRouter() *gin.Engine {
 		apiv1.PUT("/tags/:id", v1.EditTag)
 		// 删除
 		apiv1.DELETE("/tags/:id", v1.DeleteTag)
-
 		/// 获取文章列表
 		apiv1.GET("/articles", v1.GetArticles)
 		/// 获取指定文章

@@ -16,6 +16,12 @@ type auth struct {
 	Password string `valid:"Required; MaxSize(50)"`
 }
 
+// @summary 获取作者接口(相当于登录接口)
+// @Produce json
+// @Param username query string true "账号"
+// @Param password query string true "密码"
+// @Success 200 {string} json "{"code":200,"data":{"token": "xxxx5cCxxxx"},"msg":"ok"}"
+// @Router /auth [GET]
 func GetAuth(c *gin.Context) {
 	username := c.Query("username")
 	password := c.Query("password")
@@ -45,7 +51,7 @@ func GetAuth(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			logging.Info(err.Key, err.Message)
+			logging.Debug(err.Key, err.Message)
 		}
 	}
 
@@ -56,6 +62,12 @@ func GetAuth(c *gin.Context) {
 	})
 }
 
+// @summary 注册作者
+// @Produce json
+// @Param username query string true "账号"
+// @Param password query string true "密码"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /auth [POST]
 func RegistAuth(c *gin.Context) {
 	username := c.Query("username")
 	password := c.Query("password")

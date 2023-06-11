@@ -13,7 +13,11 @@ import (
 	"github.com/unknwon/com"
 )
 
-// 获取多个文章标签
+// @summary 获取多个文章标签
+// @Produce json
+// @Param token query string true "Token"
+// @Success 200 {string} json "{"code":200,"data":{"lists": [{"id": 4,"created_on": 1685854990,"modified_on": 0,"deleted_on": 0,"name": "4","created_by": "fcf","modified_by": "","state": 1}]},"msg":"ok"}"
+// @Router /api/v1/tags [GET]
 func GetTags(c *gin.Context) {
 	// c.Quuery 用户获取?name=test&state=1这类URL参数
 	// c.DefaultQuery则支持设置一个默认值
@@ -49,7 +53,13 @@ func GetTags(c *gin.Context) {
 	})
 }
 
-// 新增文章标签
+// @summary 新增文章标签
+// @Produce json
+// @Param token query string true "Token"
+// @Param name query string true "Name"
+// @Param state query int false "State"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/tags [POST]
 func AddTag(c *gin.Context) {
 	name := c.Query("name")
 	logging.Debug("xxxxxxxx fcf 开始添加tag name: %s", name)
@@ -90,7 +100,14 @@ func AddTag(c *gin.Context) {
 	})
 }
 
-// 修改文章标签
+// @summary 修改文章标签
+// @Produce json
+// @Param token query string true "Token"
+// @Param name query string true "Name"
+// @Param state query int false "State"
+// @Param modified_by query string false "State"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/tags/:id [PUT]
 func EditTag(c *gin.Context) {
 	logging.Debug("xxxxxxxx fcf 修改tag")
 	id := com.StrTo(c.Param("id")).MustInt()
@@ -134,7 +151,11 @@ func EditTag(c *gin.Context) {
 	})
 }
 
-// 删除文章标签
+// @summary 删除文章标签
+// @Produce json
+// @Param token query string true "Token"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/tags/:id [DELETE]
 func DeleteTag(c *gin.Context) {
 	logging.Debug("xxxxxxxx fcf 删除tag")
 	id := com.StrTo(c.Param("id")).MustInt()
