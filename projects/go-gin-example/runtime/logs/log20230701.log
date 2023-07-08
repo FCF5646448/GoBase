@@ -1,0 +1,4 @@
+[DEBUG][tag.go:25]2023/07/01 10:14:42 [xxxxxxxx fcf 开始获取tags]
+[DEBUG][tag.go:39]2023/07/01 10:14:42 [xxxxxxxx fcf : 开始获取tags]
+[DEBUG][tag.go:112]2023/07/01 10:14:50 [xxxxxxxx fcf 修改tag]
+[DEBUG][tag.go:65]2023/07/01 10:15:00 [xxxxxxxx fcf 开始添加tag name: %s 10]
